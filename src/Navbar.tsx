@@ -8,6 +8,9 @@ function Navbar() {
           <a href="/">Home</a>
         </li>
         <li className="navElement">
+          <a href="/characters">Characters</a>
+        </li>
+        <li className="navElement">
           <a href="/about">About</a>
         </li>
       </ul>

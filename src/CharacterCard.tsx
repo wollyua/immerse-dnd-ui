@@ -1,4 +1,4 @@
-import ChatacteristicCard from "./CaracteristicCard";
+import CharacteristicCard from "./CharacteristicCard";
 import "./CharacterCard.css";
 
 function ChatacterCard() {
@@ -23,12 +23,12 @@ function ChatacterCard() {
         <div>Level: {level}</div>
       </div>
       <div className="cardContainer">
-        <ChatacteristicCard characteristic="STR" value={str} />
-        <ChatacteristicCard characteristic="DEX" value={dex} />
-        <ChatacteristicCard characteristic="Con" value={con} />
-        <ChatacteristicCard characteristic="INT" value={int} />
-        <ChatacteristicCard characteristic="WIS" value={wis} />
-        <ChatacteristicCard characteristic="CHA" value={cha} />
+        <CharacteristicCard characteristic="STR" value={str} />
+        <CharacteristicCard characteristic="DEX" value={dex} />
+        <CharacteristicCard characteristic="Con" value={con} />
+        <CharacteristicCard characteristic="INT" value={int} />
+        <CharacteristicCard characteristic="WIS" value={wis} />
+        <CharacteristicCard characteristic="CHA" value={cha} />
       </div>
     </div>
   );
