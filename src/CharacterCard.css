@@ -1,0 +1,27 @@
+.statContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 22;
+
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  /*align-items: start;*/
+  padding: 20px;
+  border-radius: 60px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #000;
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+  background-color: #fffbf5;
+  margin: 20px;
+
+}

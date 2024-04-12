@@ -13,7 +13,21 @@ nav {
   align-items: center;
   background-color: #511E1E;
   color: #F3F3F3;
+  font-weight: bold;
   padding: 10px 20px;
+}
+
+.navElement:hover {
+  background-color: #431919;
+}
+
+header {
+  display: flex;
+  justify-content:left;
+  background-color: #511E1E;
+  color: #F3F3F3;
+  padding: 0px auto;
+
 }
 
 a:link {
@@ -25,8 +39,8 @@ a:visited {
   color: #F3F3F3;
 }
   
-a:hover {
-  color: #e5e5e5;
+.navElement:hover > a {
+  color: #f5edbf;
 }
   
 a:active {

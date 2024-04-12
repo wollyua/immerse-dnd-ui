@@ -1,4 +1,4 @@
-import "./CaracteristicCard.css";
+import "./CharacteristicCard.css";
 
 interface CharacteristicCardProps {
   characteristic: string;
@@ -12,10 +12,13 @@ function CharacteristicCard({
   let modifier: number = Math.floor((value - 10) / 2);
 
   return (
-    <div>
-      <div>{characteristic}</div>
-      <div>{modifier}</div>
-      <div>{value}</div>
+    <div className="summaryBlock">
+      <div className="typeName">{characteristic}</div>
+      <div className="summaryModifier">
+        {modifier >= 0 && "+"}
+        {modifier}
+      </div>
+      <div className="summaryMain">{value}</div>
     </div>
   );
 }
