@@ -5,7 +5,7 @@ interface CharacteristicCardProps {
   value: number;
 }
 
-function CharacteristicCard({
+export default function CharacteristicCard({
   characteristic,
   value,
 }: CharacteristicCardProps) {
@@ -22,5 +22,3 @@ function CharacteristicCard({
     </div>
   );
 }
-
-export default CharacteristicCard;

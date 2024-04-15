@@ -1,6 +1,7 @@
 .statContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  background-color: #fffbf5;
 }
 
 .summary {
@@ -8,20 +9,41 @@
   flex-direction: column;
   margin-bottom: 20px;
   font-size: 22;
-
+  padding: 10px;
+  background-color: inherit;
 }
 
-.card {
+.cardWrapper {
   display: flex;
   flex-direction: column;
-  /*align-items: start;*/
   padding: 20px;
-  border-radius: 60px;
+  border-radius: 15px;
   border-width: 2px;
   border-style: solid;
   border-color: #000;
-  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   background-color: #fffbf5;
-  margin: 20px;
+  width: 340px;
+  height: 450px;
+  min-width: 340px;
+  min-height: 450px;
+  margin:  10px;
+}
 
+.cardWrapper:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
+  background-color: #f8efe2;
+}
+
+.cardWrapper:active {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  background-color: #f1e4d5;
+}
+
+.cardWrapper:hover > .statContainer{
+  background-color: #f8efe2;
+}
+
+.cardWrapper:active > .statContainer{
+  background-color: #f1e4d5;
 }

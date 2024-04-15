@@ -4,31 +4,38 @@
     justify-content: center;
     border-radius: 10px;
     border: 2px solid #000;
-    margin: 10px;
-    padding: 10px;
+    margin: 10px auto;
     height: 100px;
-    width: 90px;
+    width: 75px;
     text-align: center;
     position: relative;
+    background-color: inherit;
+    /*background-color: #fffbf5;*/
 }
+
+
 
 .summaryMain{
     font-size: 12pt;
     bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 45px;
     height: 30px;
     border: 2px solid #000;
     border-radius: 50%;
-    background-color: #fffbf5;
-    position: absolute;
+    background-color:inherit;
+    position: relative;
 }
 
 .summaryModifier{
+    position: relative;
     font-size: 16pt;
     font-weight: 550;
+    bottom: -5px;
 }
 
 .typeName{
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: bold;
 }

@@ -14,7 +14,7 @@ interface CharacterCardProps {
   cha: number;
 }
 
-function CharacterCard() {
+export default function CharacterCard() {
   let name: string = "Rick Sanchez";
   let race: string = "Human";
   let chClass: string = "Warlock";
@@ -28,7 +28,7 @@ function CharacterCard() {
   let cha: number = 12;
 
   return (
-    <div className="card">
+    <div className="cardWrapper">
       <div className="summary">
         <div>
           Name: <b>{name}</b>
@@ -54,5 +54,3 @@ function CharacterCard() {
     </div>
   );
 }
-
-export default CharacterCard;
