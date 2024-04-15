@@ -1,4 +1,3 @@
-//import CharacterCard from "./CharacterCard";
 import CharactersList from "./CharactersList";
 import Navbar from "./Navbar";
 
@@ -6,7 +5,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <CharactersList />
+      <div className="content">
+        <CharactersList />
+      </div>
     </>
   );
 }
