@@ -2,16 +2,17 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <nav>
-      <ul>
-        <li className="navElement">
-          <a href="/">Home</a>
-        </li>
-        <li className="navElement">
-          <a href="/about">About</a>
-        </li>
-      </ul>
-    </nav>
+    <header>
+      <div className="navElement">
+        <a href="/">Immerse D&D</a>
+      </div>
+      <div className="navElement">
+        <a href="/characters">Characters</a>
+      </div>
+      <div className="navElement">
+        <a href="/about">About</a>
+      </div>
+    </header>
   );
 }
 
