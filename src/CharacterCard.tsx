@@ -1,7 +1,7 @@
 import "./CharacterCard.css";
 import CharacteristicCard from "./CharacteristicCard";
 
-interface CharacterCardProps {
+export interface CharacterCardProps {
   name: string;
   race: string;
   chClass: string;
@@ -14,19 +14,18 @@ interface CharacterCardProps {
   cha: number;
 }
 
-export default function CharacterCard() {
-  let name: string = "Rick Sanchez";
-  let race: string = "Human";
-  let chClass: string = "Warlock";
-  let level: number = 10;
-
-  let str: number = 10;
-  let dex: number = 18;
-  let con: number = 14;
-  let int: number = 8;
-  let wis: number = 15;
-  let cha: number = 12;
-
+export default function CharacterCard({
+  name = "Rick Sanchez",
+  race = "Human",
+  chClass = "Warlock",
+  level = 10,
+  str = 10,
+  dex = 18,
+  con = 14,
+  int = 8,
+  wis = 15,
+  cha = 12,
+}: CharacterCardProps) {
   return (
     <div className="cardWrapper">
       <div className="summary">
