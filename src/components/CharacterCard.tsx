@@ -2,29 +2,29 @@ import "./CharacterCard.css";
 import CharacteristicCard from "./CharacteristicCard";
 
 export interface CharacterCardProps {
-  name: string;
-  race: string;
-  chClass: string;
-  level: number;
-  str: number;
-  dex: number;
-  con: number;
-  int: number;
-  wis: number;
-  cha: number;
+  Name: string;
+  Race: string;
+  Class: string;
+  Level: number;
+  Strength: number;
+  Dexterity: number;
+  Constitution: number;
+  Intelligence: number;
+  Wisdom: number;
+  Charisma: number;
 }
 
 export default function CharacterCard({
-  name = "Rick Sanchez",
-  race = "Human",
-  chClass = "Warlock",
-  level = 10,
-  str = 10,
-  dex = 18,
-  con = 14,
-  int = 8,
-  wis = 15,
-  cha = 12,
+  Name: name,
+  Race: race,
+  Class: chClass,
+  Level: level,
+  Strength: str,
+  Dexterity: dex,
+  Constitution: con,
+  Intelligence: int,
+  Wisdom: wis,
+  Charisma: cha,
 }: CharacterCardProps) {
   return (
     <div className="cardWrapper">

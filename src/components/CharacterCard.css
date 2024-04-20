@@ -28,6 +28,7 @@
   min-width: 340px;
   min-height: 450px;
   margin:  10px;
+  cursor: pointer;
 }
 
 .cardWrapper:hover {
