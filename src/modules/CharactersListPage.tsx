@@ -1,6 +1,7 @@
 import { CharacterCardProps } from "../components/CharacterCard";
-import plusIcon from "./assets/plus-svgrepo-com.svg";
+import plusIcon from "../assets/plus-svgrepo-com.svg";
 import CharactersList from "../components/CharactersList";
+import "./CharactersListPage.css";
 
 const charactersList: CharacterCardProps[] = [
   {

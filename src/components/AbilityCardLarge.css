@@ -1,0 +1,69 @@
+.card-wrapper {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #000;
+    border-radius: 10px;
+    max-width: 235px;
+    height: 140px;
+    background-color: #fffbf5;
+}
+
+.ability-block {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    border-radius: 10px;
+    border: 2px solid #000;
+    margin: -1.6px 0px -1.6px -1.6px;
+    width: 85px;
+    text-align: center;
+    position: relative;
+    background-color: inherit;
+}
+
+
+
+.ability-main{
+    font-size: 1rem;
+    bottom: -.6rem;
+    width: 45px;
+    height: 30px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background-color:inherit;
+    position: relative;
+}
+
+.ability-modifier{
+    position: relative;
+    font-size: 1.9rem;
+    font-weight: 550;
+    bottom: -5px;
+}
+
+.ability-name{
+    font-size: .6rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.skills-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+    position: relative;
+    background-color: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.prof-icon{
+    height: 0.6rem;
+    width: 0.6rem;
+}

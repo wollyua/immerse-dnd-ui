@@ -1,5 +1,5 @@
 import "./CharacterCard.css";
-import CharacteristicCard from "./CharacteristicCard";
+import AbilityCard from "./AbilityCard";
 
 export interface CharacterCardProps {
   Name: string;
@@ -43,12 +43,12 @@ export default function CharacterCard({
         </div>
       </div>
       <div className="statContainer">
-        <CharacteristicCard characteristic="STR" value={str} />
-        <CharacteristicCard characteristic="DEX" value={dex} />
-        <CharacteristicCard characteristic="CON" value={con} />
-        <CharacteristicCard characteristic="INT" value={int} />
-        <CharacteristicCard characteristic="WIS" value={wis} />
-        <CharacteristicCard characteristic="CHA" value={cha} />
+        <AbilityCard ability="STR" value={str} />
+        <AbilityCard ability="DEX" value={dex} />
+        <AbilityCard ability="CON" value={con} />
+        <AbilityCard ability="INT" value={int} />
+        <AbilityCard ability="WIS" value={wis} />
+        <AbilityCard ability="CHA" value={cha} />
       </div>
     </div>
   );

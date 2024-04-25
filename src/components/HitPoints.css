@@ -1,0 +1,113 @@
+.hit-points{
+    max-height: 125px;
+    width: 320px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    background-color: #fffbf5;
+    border : 2px solid #000;
+    border-radius: 10px;
+    padding : 10px;
+}
+
+.hit-points-controls {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    max-width: 100px;
+
+}
+
+.hit-points-button .hit-points-input{
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: .8rem;
+    font-weight: 600;
+    background-color: #fff;
+
+}
+
+.hit-points-input{
+    outline: none;
+}
+
+.damage{
+    color: #EF5A5A;
+    background-color: #fff;
+    font-weight: 600;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: .8rem;
+}
+
+.heal{
+    color: #62B761;
+    font-weight: 600;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: .8rem;
+}
+
+.heal:hover, .damage:hover{
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.heal:active, .damage:active{
+    background-color: #e0e0e0;
+}
+
+.hit-points-input{
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: .8rem;
+    background-color: #fff;
+}
+
+.values-block{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 100%;
+}
+
+.hit-points-value{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: auto;
+    padding: 0px 0px 0px 10px;
+}
+
+.hit-points-name{
+    font-size: .6rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hp-label{
+    font-size: .6rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hp-element{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 100%;
+}
