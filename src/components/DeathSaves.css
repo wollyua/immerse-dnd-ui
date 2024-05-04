@@ -1,0 +1,40 @@
+.death-saves-container{
+    width: 320px;
+    height: 125px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #fffbf5;
+}
+
+.death-saves-content{
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.death-saves-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.death-saves-block-header{
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.death-saves-block-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.death-saves-block-content input [type="radio"]{
+    color: #000;
+}
+
+.death-saves-header{
+    text-align: center;
+    font-size: .6rem;
+    font-weight: bold;
+    margin: 0 auto;
+}

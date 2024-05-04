@@ -23,7 +23,7 @@
     row-gap: 10px;
 }
 
-.character-info-miscelanous{
+.character-info-secondary{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -31,7 +31,17 @@
     column-gap: 10px;
     row-gap: 10px;
     max-width: 320px;
-    max-height: 263px;
     min-width: 320px;
-    min-height: 220px;
+}
+
+.millde-column{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.character-info-miscelanous{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }

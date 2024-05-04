@@ -3,6 +3,8 @@ import AbilitySecondary, {
   ParameterBlock,
 } from "../components/AbilitySecondary";
 import ArmorClass from "../components/ArmorClass";
+import AttacksContainer from "../components/AttacksContainer";
+import DeathSaves from "../components/DeathSaves";
 import HitPointsCurrent from "../components/HitPoints";
 import "./CharacterSheetPage.css";
 
@@ -46,55 +48,61 @@ export default function CharacterSheetPage(props: CharacteristicCardProps) {
           />
           <CharacteristicCardLarge
             ability="STRENGTH"
-            value={9}
+            value={props.Strength}
             proficiency={false}
           />
           <CharacteristicCardLarge
             ability="DEXTERITY"
-            value={14}
+            value={props.Dexterity}
             proficiency={true}
           />
           <CharacteristicCardLarge
             ability="CONSTITUTION"
-            value={14}
+            value={props.Constitution}
             proficiency={false}
           />
           <CharacteristicCardLarge
             ability="INTELLIGENCE"
-            value={12}
+            value={props.Intelligence}
             proficiency={false}
           />
           <CharacteristicCardLarge
             ability="WISDOM"
-            value={12}
+            value={props.Wisdom}
             proficiency={false}
           />
           <CharacteristicCardLarge
             ability="CHARISMA"
-            value={20}
+            value={props.Charisma}
             proficiency={true}
           />
           <AbilitySecondary
             ability="PASSIVE WISDOM (PERCEPTION)"
-            value={Math.floor((14 - 10) / 2)}
+            value={Math.floor((props.Wisdom - 10) / 2)}
           />
         </div>
-        <div className="character-info-miscelanous">
-          <ArmorClass
-            Armor={props.Armor}
-            Dexterity={props.Dexterity}
-            Bonus={0}
-          />
-          <ParameterBlock
-            ability="INITIATIVE"
-            value={Math.floor((props.Dexterity - 10) / 2)}
-          />
-          <ParameterBlock ability="SPEED" value={props.Speed} />
-          <HitPointsCurrent
-            currentHitPoints={props.CurrentHP}
-            maxHitPoints={props.MaxHP}
-            temporaryHitPoints={props.TempHP}
-          />
+        <div className="millde-column">
+          <div className="character-info-secondary">
+            <ArmorClass
+              Armor={props.Armor}
+              Dexterity={props.Dexterity}
+              Bonus={0}
+            />
+            <ParameterBlock
+              ability="INITIATIVE"
+              value={Math.floor((props.Dexterity - 10) / 2)}
+            />
+            <ParameterBlock ability="SPEED" value={props.Speed} />
+          </div>
+          <div className="character-info-miscelanous">
+            <HitPointsCurrent
+              currentHitPoints={props.CurrentHP}
+              maxHitPoints={props.MaxHP}
+              temporaryHitPoints={props.TempHP}
+            />
+            <DeathSaves />
+            <AttacksContainer />
+          </div>
         </div>
       </div>
     </>
