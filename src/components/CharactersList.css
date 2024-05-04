@@ -1,0 +1,42 @@
+.charactersList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.pagesList{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.pagesList button {
+    width: 35px;
+    height: 35px;
+    background-color: #fffbf5;
+    border: 2px solid #1c1c1c;
+    color: #1c1c1c;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+
+.pagesList button:hover {
+    background-color: #f8efe2;
+}
+
+.pagesList button:active {
+    background-color: #f1e4d5;
+}
+
+.buttonText{
+    font-size: 1rem;
+    font-weight: 600;
+    font-family:Arial, Helvetica, sans-serif;
+}
