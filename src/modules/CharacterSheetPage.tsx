@@ -6,6 +6,8 @@ import ArmorClass from "../components/ArmorClass";
 import AttacksContainer from "../components/AttacksContainer";
 import DeathSaves from "../components/DeathSaves";
 import HitPointsCurrent from "../components/HitPoints";
+import MoneyCard from "../components/MoneyCard";
+import TraitsCard from "../components/TraitsCard";
 import "./CharacterSheetPage.css";
 
 export interface CharacteristicCardProps {
@@ -103,6 +105,10 @@ export default function CharacterSheetPage(props: CharacteristicCardProps) {
             <DeathSaves />
             <AttacksContainer />
           </div>
+        </div>
+        <div className="right-column">
+          <MoneyCard Copper={0} Silver={0} Gold={0} Platinum={0} />
+          <TraitsCard />
         </div>
       </div>
     </>

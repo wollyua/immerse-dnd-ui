@@ -1,19 +1,24 @@
 .character-name{
     font-size: 2.3rem;
     font-weight: 600;
-    margin: 10px 30px;
+    margin: 10px 35px;
 }
 
 .character-info-summary{
     display: flex;
     flex-direction: column;
     font-size: 1.2rem;
-    margin: 10px 30px;
+    margin: 10px 35px;
 }
 
 .character-info-main {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 240px;
     column-gap: 10px;
+    row-gap: 10px;
     margin: 15px 30px;
 }
 
@@ -21,6 +26,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    min-width: 235px;
 }
 
 .character-info-secondary{
@@ -37,11 +43,21 @@
 .millde-column{
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 24px;
 }
 
 .character-info-miscelanous{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    height: 100%;
+}
+
+.right-column{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    height: 100%;
+    max-width: 565px;
+    width: 100%;
 }
