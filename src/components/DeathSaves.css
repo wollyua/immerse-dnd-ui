@@ -1,15 +1,18 @@
 .death-saves-container{
+    display: flex;
+    flex-direction: column;
     width: 320px;
     height: 125px;
     border: 2px solid #000;
     border-radius: 10px;
     background-color: #fffbf5;
+    padding: 10px;
 }
 
 .death-saves-content{
     justify-content: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    /*border-bottom: 1px solid #ddd;*/
     font-size: 1rem;
 }
 
@@ -19,22 +22,36 @@
 }
 
 .death-saves-block-header{
-    font-size: .9rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
 .death-saves-block-content{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    margin-left: auto;
 }
 
-.death-saves-block-content input [type="radio"]{
-    color: #000;
+.death-saves-block-content input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.death-saves-block-content input[type="checkbox"]:checked{
+    background-color: #747474;
 }
 
 .death-saves-header{
     text-align: center;
     font-size: .6rem;
     font-weight: bold;
-    margin: 0 auto;
+    margin: auto;
 }

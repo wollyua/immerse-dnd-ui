@@ -1,0 +1,33 @@
+.traits-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 340px;
+    height: 100%;
+    background-color: #fffbf5;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.traits-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:100%;
+    padding: 10px;
+}
+
+.traits-item{
+    width: 100%;
+    padding: 2px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.traits-header{
+    text-align: center;
+    font-size: .6rem;
+    font-weight: bold;
+    margin: auto;
+}
