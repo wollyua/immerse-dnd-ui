@@ -9,39 +9,39 @@ interface TraitsCardProps {
   OtherTraits: string;
 }
 
-export default function TraitsCard() {
+export default function TraitsCard(props: TraitsCardProps) {
   return (
     <div className="traits-card">
       <div className="traits-container">
         <p className="traits-item">
           <b>Languages:</b>
           <br />
-          {`Common, Elvish, Dwarvish`}
+          {props.Languages}
         </p>
         <p className="traits-item">
           <b>Personality Traits:</b>
           <br />
-          {`I'm a hopeless romantic, always searching for that "special someone."`}
+          {props.PersonalityTraits}
         </p>
         <p className="traits-item">
           <b>Ideals:</b>
           <br />
-          {`Beauty. I don't care about the past or the future, only the present.`}
+          {props.Ideals}
         </p>
         <p className="traits-item">
           <b>Bonds:</b>
           <br />
-          {`I'm a sucker for a pretty face.`}
+          {props.Bonds}
         </p>
         <p className="traits-item">
           <b>Flaws:</b>
           <br />
-          {`I have a weakness for the vices of the city, especially hard drink.`}
+          {props.Flaws}
         </p>
         <p className="traits-item">
           <b>Other Traits:</b>
           <br />
-          {`Darkvision, Fey Ancestry, Dwarven Resilience`}
+          {props.OtherTraits}
         </p>
       </div>
       <div className="traits-header">LANGUAGES & TRAITS</div>
