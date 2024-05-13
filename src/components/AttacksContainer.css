@@ -25,14 +25,23 @@
 
 .attack-container{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr 2fr;
   column-gap: 5px;
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #ddd;
+  font-size: 0.8rem;
 }
 
 .attack-damage{
   text-align: right;
   padding: 0 5px;
+}
+
+.empty-attacks{
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #989898;
+  margin: auto;
 }
