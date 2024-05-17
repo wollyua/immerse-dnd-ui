@@ -1,16 +1,15 @@
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
+  console.log("Navbar component rendered");
   return (
     <header>
       <div className="navElement">
-        <a href="/">Immerse D&D</a>
+        <Link to="/">Immerse D&D</Link>
       </div>
       <div className="navElement">
-        <a href="/characters">Characters</a>
-      </div>
-      <div className="navElement">
-        <a href="/about">About</a>
+        <Link to="/my-characters">Characters</Link>
       </div>
     </header>
   );

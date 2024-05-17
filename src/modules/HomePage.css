@@ -1,0 +1,56 @@
+.content{
+    margin-top: 44px;
+    padding-top: 25px;
+    min-height: calc(100vh - 44px);
+}
+
+footer {
+    background-color: #242424;
+    color: #989898;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+.app-header{
+    text-align: center;
+    font-weight: bold;
+}
+
+.app-subheader{
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.app-logo {
+    display: flex;
+    justify-content: center;
+    height: 40vmin;
+    pointer-events: none;
+    margin: auto;
+    padding: 10px 20px;
+}
+
+.app-content {
+    text-align: center;
+    padding: 20px 10px;
+    color: #000;
+}
+
+.login-link {
+    color: #242424;
+    text-decoration: underline;
+}
+
+.login-link:hover {
+    color: #284663;
+}
+
+.login-link:active {
+    color: #213950;
+}
+
+.login-link:visited {
+    color: #242424;
+}

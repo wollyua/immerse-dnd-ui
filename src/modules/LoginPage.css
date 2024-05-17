@@ -1,0 +1,12 @@
+.login-content{
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.app-logo{
+    display: flex;
+    justify-content: center;
+    height: 25vmin;
+    pointer-events: none;
+    margin-bottom: 20px;
+}

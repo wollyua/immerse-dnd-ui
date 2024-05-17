@@ -1,7 +1,9 @@
 import "./CharacterCard.css";
 import AbilityCard from "./AbilityCard";
+import { useNavigate } from "react-router";
 
 export interface CharacterCardProps {
+  ID: string;
   Name: string;
   Race: string;
   Class: string;
@@ -15,6 +17,7 @@ export interface CharacterCardProps {
 }
 
 export default function CharacterCard({
+  ID,
   Name: name,
   Race: race,
   Class: chClass,
@@ -26,8 +29,14 @@ export default function CharacterCard({
   Wisdom: wis,
   Charisma: cha,
 }: CharacterCardProps) {
+  const navigate = useNavigate();
+  const onClick = () => {
+    console.log(`Clicked on character with ID: ${ID}`);
+    navigate(`/my-character`);
+  };
+
   return (
-    <div className="cardWrapper">
+    <div className="cardWrapper" onClick={onClick}>
       <div className="summary">
         <div>
           Name: <b>{name}</b>
