@@ -34,12 +34,19 @@
     margin-bottom: auto;
 }
 
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    margin: 10px 0;
+}
+
 .edit-character-button:hover {
-    background-color: #e0e0e0;
+    background-color: #d7d7d7;
 }
 
 .edit-character-button:active {
-    background-color: #d0d0d0;
+    background-color: #cbcbcb;
 }
 
 .abilities-and-skills-block {

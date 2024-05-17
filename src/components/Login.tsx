@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router";
 
 const Login: React.FC = () => {
   //const [email, setEmail] = useState("");
   //const [password, setPassword] = useState("");
-  const usernameReg = "^[a-z0-9_]{4,15}$";
+  const usernameReg = "^[a-zA-Z0-9_]{4,15}$";
   const passwordReg = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,16})";
 
   const [isOpen, setIsOpen] = useState(false);
@@ -13,27 +14,48 @@ const Login: React.FC = () => {
     setIsOpen((isOpen) => !isOpen);
   }
 
-  // const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setEmail(e.target.value);
-  // };
+  const navigate = useNavigate();
 
-  // const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setPassword(e.target.value);
-  // };
+  const validateSignup = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const username = (e.currentTarget[0] as HTMLInputElement).value;
+    const email = (e.currentTarget[1] as HTMLInputElement).value;
+    const password = (e.currentTarget[2] as HTMLInputElement).value;
+    const confirmPassword = (e.currentTarget[3] as HTMLInputElement).value;
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   // Here you can implement the logic to submit the form (e.g., send the data to a server)
-  //   console.log("Email:", email, "Password:", password);
-  // };
+    if (!username.match(usernameReg)) {
+      alert("Username must be between 4 and 15 characters long.");
+    } else if (!password.match(passwordReg)) {
+      alert(
+        "Password must be between 8 and 16 characters long and contain at least one lowercase letter, one uppercase letter, and one number."
+      );
+    } else if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+    }
+
+    navigate(`/my-characters`);
+  };
+
+  const validateLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const email = (e.currentTarget[0] as HTMLInputElement).value;
+    const password = (e.currentTarget[1] as HTMLInputElement).value;
+
+    if (!email) {
+      alert("Email is required.");
+    } else if (!password) {
+      alert("Password is required.");
+    }
+
+    navigate(`/my-characters`);
+  };
 
   return (
     <div className="form">
       {!isOpen && (
         <div id="signup">
           <h2 className="title">Sign Up</h2>
-
-          <form action="/" method="post">
+          <form action="/" method="post" onSubmit={validateSignup}>
             <div className="top-row">
               <div className="field-wrap">
                 <label>
@@ -81,7 +103,7 @@ const Login: React.FC = () => {
         <div id="login">
           <h2 className="title">Welcome Back!</h2>
 
-          <form action="/" method="post">
+          <form action="/" method="post" onSubmit={validateLogin}>
             <div className="field-wrap">
               <label>
                 Email Address<span className="req">*</span>
@@ -102,7 +124,7 @@ const Login: React.FC = () => {
             <div>
               Visiting us for first time?{" "}
               <a className="toggle-link" onClick={toggle}>
-                Log In
+                Sign Up
               </a>
             </div>
           </form>
@@ -113,36 +135,3 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-
-/*
-<div className="login-box">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <br />
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <br />
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-        <div>Already have an account?</div>
-        
-      </form>
-    </div>
-*/
