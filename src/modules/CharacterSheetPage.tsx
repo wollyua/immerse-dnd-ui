@@ -5,10 +5,11 @@ import AbilitySecondary, {
 import editIcon from "../assets/Edit icon.svg";
 import deleteIcon from "../assets/delete-button.svg";
 import closeIcon from "../assets/closeIcon.svg";
+import saveIcon from "../assets/SaveIcon.svg";
 import ArmorClass from "../components/ArmorClass";
 import AttacksContainer, { AttackProps } from "../components/AttacksContainer";
 import DeathSaves from "../components/DeathSaves";
-import HitPointsCurrent from "../components/HitPoints";
+import HitPoints from "../components/HitPoints";
 import MoneyCard from "../components/MoneyCard";
 import TraitsCard from "../components/TraitsCard";
 import "./CharacterSheetPage.css";
@@ -146,7 +147,8 @@ export default function CharacterSheetPage(props: CharacterSheetProps) {
                   <ParameterBlock ability="SPEED" value={props.Speed} />
                 </div>
                 <div className="character-info-miscelanous">
-                  <HitPointsCurrent
+                  <HitPoints
+                    characterId={props.CharacterID}
                     currentHitPoints={props.CurrentHP}
                     maxHitPoints={props.MaxHP}
                     temporaryHitPoints={props.TempHP}
@@ -156,7 +158,12 @@ export default function CharacterSheetPage(props: CharacterSheetProps) {
                 </div>
               </div>
               <div className="right-column">
-                <MoneyCard Copper={0} Silver={0} Gold={0} Platinum={0} />
+                <MoneyCard
+                  Copper={props.Copper}
+                  Silver={props.Silver}
+                  Gold={props.Gold}
+                  Platinum={props.Platinum}
+                />
                 <Inventory items={props.InventoryItems} />
                 <TraitsCard
                   Languages={props.Languages}
@@ -172,12 +179,19 @@ export default function CharacterSheetPage(props: CharacterSheetProps) {
         )}
 
         {isEditing && (
-          <>
-            <button className="edit-character-button">
-              <img src={closeIcon} alt="Edit character" onClick={toggle} />
-            </button>
-            <CharacterForm />
-          </>
+          <div className="edit-form">
+            <div className="buttons-container">
+              <button className="edit-character-button">
+                <img src={closeIcon} alt="Edit character" onClick={toggle} />
+              </button>
+              <button className="edit-character-button">
+                <img src={saveIcon} alt="Save character" onClick={toggle} />
+              </button>
+            </div>
+            <div className="character-form-container">
+              <CharacterForm />
+            </div>
+          </div>
         )}
       </div>
     </>

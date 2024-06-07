@@ -25,11 +25,6 @@ function proficiencyIcon(value: number) {
   return <img src={source} title={title} className="prof-icon" />;
 }
 
-function modifierString(modifier: number, bonus: boolean): string {
-  let res: number = modifier + (bonus ? 1 : 0);
-  return `${res >= 0 ? "+" : ""}${res} `;
-}
-
 export default function AbilityCardLarge({
   ability,
   value,

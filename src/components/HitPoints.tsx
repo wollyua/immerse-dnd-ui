@@ -1,36 +1,67 @@
+import { useState } from "react";
 import "./HitPoints.css";
+import { UpdateHpRequest, updateHP } from "../api/ApiService";
 
 interface HitPointsProps {
+  characterId: string;
   maxHitPoints: number;
   currentHitPoints: number;
   temporaryHitPoints: number;
 }
 
-export default function HitPointsCurrent(props: HitPointsProps) {
+export default function HitPoints(props: HitPointsProps) {
+  const [inputValue, setInputValue] = useState<number>(0);
+
   let tempHP = props.temporaryHitPoints > 0 ? props.temporaryHitPoints : 0;
   let currentHP = props.currentHitPoints > 0 ? props.currentHitPoints : 0;
   let maxHP = props.maxHitPoints > 0 ? props.maxHitPoints : 0;
 
-  const healHandler = () => {
-    const input = document.querySelector(
-      ".hit-points-input"
-    ) as HTMLInputElement;
-    const value = Number(input.value);
-    if (value > 0) {
-      console.log("heal " + value);
-      currentHP += value;
+  const healHandler = async () => {
+    let newCurrentHP = Math.min(currentHP + Math.abs(inputValue), maxHP);
+
+    const hpRequest: UpdateHpRequest = {
+      currentHp: newCurrentHP,
+      tempHp: tempHP,
+    };
+
+    try {
+      await updateHP(props.characterId, hpRequest);
+      currentHP = newCurrentHP;
+    } catch (error) {
+      console.error("Error updating HP:", error);
+      return;
     }
+    console.log("Heal handler", currentHP, tempHP, props.characterId);
   };
 
-  const damageHandler = () => {
-    const input = document.querySelector(
-      ".hit-points-input"
-    ) as HTMLInputElement;
-    const value = Number(input.value);
-    if (value > 0) {
-      console.log("damage " + value);
-      currentHP -= value;
+  const damageHandler = async () => {
+    let remainingDamage = Math.abs(inputValue);
+
+    if (tempHP > 0) {
+      if (remainingDamage >= tempHP) {
+        remainingDamage -= tempHP;
+        tempHP = 0;
+      } else {
+        tempHP -= remainingDamage;
+        remainingDamage = 0;
+      }
     }
+
+    let newCurrentHP = Math.max(currentHP - remainingDamage, 0);
+
+    const hpRequest: UpdateHpRequest = {
+      currentHp: newCurrentHP,
+      tempHp: tempHP,
+    };
+
+    try {
+      await updateHP(props.characterId, hpRequest);
+      currentHP = newCurrentHP;
+    } catch (error) {
+      console.error("Error updating HP:", error);
+      return;
+    }
+    console.log("Damage Handler", currentHP, tempHP, props.characterId);
   };
 
   return (
@@ -43,7 +74,14 @@ export default function HitPointsCurrent(props: HitPointsProps) {
         >
           HEAL
         </button>
-        <input className="hit-points-input" type="number" min={0} max={200} />
+        <input
+          className="hit-points-input"
+          type="number"
+          min={0}
+          max={200}
+          value={inputValue}
+          onChange={(e) => setInputValue(Number(e.target.value))}
+        />
         <button
           className="hit-points-button damage"
           type="button"
@@ -67,17 +105,6 @@ export default function HitPointsCurrent(props: HitPointsProps) {
         </div>
         <div className="hit-points-name">HIT POINTS</div>
       </div>
-    </div>
-  );
-}
-
-export function HitPointsTemporary(props: HitPointsProps) {
-  return (
-    <div className="hit-points">
-      <div className="hit-points-value">
-        {props.currentHitPoints} / {props.maxHitPoints}
-      </div>
-      <div className="hit-points-name">{"Temporary Hit Points"}</div>
     </div>
   );
 }
