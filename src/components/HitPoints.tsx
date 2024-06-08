@@ -32,6 +32,7 @@ export default function HitPoints(props: HitPointsProps) {
       return;
     }
     console.log("Heal handler", currentHP, tempHP, props.characterId);
+    setInputValue(0);
   };
 
   const damageHandler = async () => {
@@ -62,8 +63,10 @@ export default function HitPoints(props: HitPointsProps) {
       return;
     }
     console.log("Damage Handler", currentHP, tempHP, props.characterId);
+    setInputValue(0);
   };
 
+  console.log(props.characterId, currentHP, tempHP, maxHP, inputValue);
   return (
     <div className="hit-points">
       <div className="hit-points-controls">

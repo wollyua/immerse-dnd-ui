@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export interface UserPropsRequest {
-    UserName: string;
-    Password: string;
-    Email: string;
+    userName: string;
+    userPassword: string;
+    userEmail: string;
 }
 
 export interface UpdateHpRequest {
@@ -12,76 +12,98 @@ export interface UpdateHpRequest {
 }
 
 export interface CharacterDto {
-    CharacterID: string;
-    CharacterName: string;
-    CharacterRace: string;
-    CharacterClass: string;
-    CharacterLevel: number;
-    Strength: number;
-    Dexterity: number;
-    Constitution: number;
-    Intelligence: number;
-    Wisdom: number;
-    Charisma: number;
+    characterId: string;
+    characterName: string;
+    characterRace: string;
+    characterClass: string;
+    characterLevel: number;
+    strength: number;
+    dexterity: number;
+    constitution: number;
+    intelligence: number;
+    wisdom: number;
+    charisma: number;
     bonStr: boolean;
     bonDex: boolean;
     bonCon: boolean;
     bonInt: boolean;
     bonWis: boolean;
     bonCha: boolean;
-    Inspiration: boolean;
-    ProficiencyBonus: number;
-    Armor: number;
-    Speed: number;
-    CurrentHP: number;
-    MaxHP: number;
-    TempHP: number;
-    Copper: number;
-    Silver: number;
-    Gold: number;
-    Platinum: number;
-    Languages: string;
-    PersonalityTraits: string;
-    Ideals: string;
-    Bonds: string;
-    Flaws: string;
-    OtherTraits: string;
+    inspiration: boolean;
+    proficiencyBonus: number;
+    armor: number;
+    speed: number;
+    currentHp: number;
+    maxHp: number;
+    tempHp: number;
+    copper: number;
+    silver: number;
+    gold: number;
+    platinum: number;
+    languages: string;
+    personalityTraits: string;
+    ideals: string;
+    bonds: string;
+    flaws: string;
+    otherTraits: string;
+}
+
+export interface CharacterPreviewDto
+{
+   characterId: string;
+   userId: string;
+   characterName: string;
+   characterRace: string;
+   characterClass: string;
+   characterLevel: number;
+   strength: number;
+   dexterity: number;
+   constitution: number;
+   intelligence: number;
+   wisdom: number;
+   charisma: number;
 }
 
 export interface AttackDto {
-    AttackID: string;
-    AttackName: string;
-    AttackRange: number;
-    DiceNumber: number;
-    DiceType: number;
-    DamageType: string;
+    attackId: string;
+    characterId: string;
+    attackName: string;
+    attackRange: number;
+    diceNumber: number;
+    diceType: number;
+    damageType: string;
 }
 
 export interface InventoryDto {
-    ItemID: string;
-    ItemName: string;
-    ItemDescription: string;
-    Quantity: number;
+    itemId: string;
+    characterId: string;
+    itemName: string;
+    itemDescription: string;
 }
 
 const api = axios.create({
     baseURL: "https://localhost:7207",
 });
 
-export const getPreviews = (UserId: string) => {
-    return api.get(`/Character/GetPreviews/${UserId}`);
+export const getPreviews = async(UserId: string): Promise<CharacterPreviewDto[]> => {
+    const response = await api.get(`/Character/GetPreviews/${UserId}`);
+    return response.data as CharacterPreviewDto[];
 }
 
-export const getCharacter = (CharacterId: string) => {
-    return api.get(`/Character/Get/${CharacterId}`);
+export const getCharacter = async (CharacterId: string): Promise<CharacterDto> => {
+    const response = await api.get(`/Character/Get/${CharacterId}`);
+    return response.data as CharacterDto;
 }
 
-export const getInventory = (CharacterId: string) => {
-    return api.get(`/InventoryItem/Get/${CharacterId}`);
+export const getInventory = async(CharacterId: string):Promise<InventoryDto[]> => {
+    const response = await api.get(`/InventoryItem/Get/${CharacterId}`);
+    return response.data as InventoryDto[];
 }
 
-export const getAttacksList = (CharacterID: string) => {
-    return api.get(`/Attack/Get/${CharacterID}`);
+export const getAttacksList = async(CharacterID: string):Promise<AttackDto[]> => {
+    const response = await api.get(`/Attack/Get/${CharacterID}`);
+    
+    return response.data as AttackDto[];
 }
 
 export const getUser = (UserName: string) => {

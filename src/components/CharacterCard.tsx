@@ -1,6 +1,7 @@
 import "./CharacterCard.css";
 import AbilityCard from "./AbilityCard";
 import { useNavigate } from "react-router";
+import { CharacterPreviewDto } from "../api/ApiService";
 
 export interface CharacterCardProps {
   ID: string;
@@ -16,22 +17,10 @@ export interface CharacterCardProps {
   Charisma: number;
 }
 
-export default function CharacterCard({
-  ID,
-  Name: name,
-  Race: race,
-  Class: chClass,
-  Level: level,
-  Strength: str,
-  Dexterity: dex,
-  Constitution: con,
-  Intelligence: int,
-  Wisdom: wis,
-  Charisma: cha,
-}: CharacterCardProps) {
+export default function CharacterCard(character: CharacterPreviewDto) {
   const navigate = useNavigate();
   const onClick = () => {
-    console.log(`Clicked on character with ID: ${ID}`);
+    console.log(`Clicked on character with ID: ${character.characterId}`);
     navigate(`/my-character`);
   };
 
@@ -39,25 +28,25 @@ export default function CharacterCard({
     <div className="cardWrapper" onClick={onClick}>
       <div className="summary">
         <div>
-          Name: <b>{name}</b>
+          Name: <b>{character.characterName}</b>
         </div>
         <div>
-          Race: <b>{race}</b>
+          Race: <b>{character.characterRace}</b>
         </div>
         <div>
-          Class: <b>{chClass}</b>
+          Class: <b>{character.characterClass}</b>
         </div>
         <div>
-          Level: <b>{level}</b>
+          Level: <b>{character.characterLevel}</b>
         </div>
       </div>
       <div className="statContainer">
-        <AbilityCard ability="STR" value={str} />
-        <AbilityCard ability="DEX" value={dex} />
-        <AbilityCard ability="CON" value={con} />
-        <AbilityCard ability="INT" value={int} />
-        <AbilityCard ability="WIS" value={wis} />
-        <AbilityCard ability="CHA" value={cha} />
+        <AbilityCard ability="STR" value={character.strength} />
+        <AbilityCard ability="DEX" value={character.dexterity} />
+        <AbilityCard ability="CON" value={character.constitution} />
+        <AbilityCard ability="INT" value={character.intelligence} />
+        <AbilityCard ability="WIS" value={character.wisdom} />
+        <AbilityCard ability="CHA" value={character.charisma} />
       </div>
     </div>
   );

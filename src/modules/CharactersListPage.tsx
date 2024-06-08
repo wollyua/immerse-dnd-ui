@@ -3,12 +3,26 @@ import plusIcon from "../assets/plus-svgrepo-com.svg";
 import CharactersList from "../components/CharactersList";
 import "./CharactersListPage.css";
 import Navbar from "../components/Navbar";
+import { CharacterPreviewDto, getPreviews } from "../api/ApiService";
+import { useEffect, useState } from "react";
 
 export interface CharactersListPageProps {
+  userId: string;
   characters: CharacterCardProps[];
 }
 
 export default function CharactersListPage(items: CharactersListPageProps) {
+  const [characters, setCharacters] = useState<CharacterPreviewDto[] | null>(
+    null
+  );
+
+  useEffect(() => {
+    getPreviews(items.userId).then((data) => {
+      console.log("Fetched character data:", data);
+      setCharacters(data);
+    });
+  }, [items.characters]);
+
   return (
     <>
       <Navbar />
@@ -20,7 +34,7 @@ export default function CharactersListPage(items: CharactersListPageProps) {
           </button>
         </div>
         <hr className="divider" />
-        <CharactersList items={items.characters} />
+        <CharactersList items={characters} />
       </div>
     </>
   );

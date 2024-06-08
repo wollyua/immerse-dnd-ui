@@ -1,6 +1,7 @@
+import { CharacterDto } from "../api/ApiService";
 import "./CharacterForm.css";
 
-export default function CharacterForm() {
+export default function CharacterForm(character: CharacterDto | null) {
   return (
     <div className="character-form">
       <h3 className="form-header">Character Information</h3>
@@ -8,32 +9,86 @@ export default function CharacterForm() {
         <div className="form-group">
           <div className="general-info">
             <label htmlFor="character-name">Character Name</label>
-            <input type="text" id="character-name" />
+            <input
+              type="text"
+              id="character-name"
+              value={character?.characterName}
+            />
             <label htmlFor="character-race">Race</label>
-            <input type="text" id="character-race" />
+            <input
+              type="text"
+              id="character-race"
+              value={character?.characterRace}
+            />
             <label htmlFor="character-class">Class</label>
-            <input type="text" id="character-class" />
+            <input
+              type="text"
+              id="character-class"
+              value={character?.characterClass}
+            />
             <label htmlFor="character-level">Level</label>
-            <input type="number" id="character-level" min={1} max={20} />
+            <input
+              type="number"
+              id="character-level"
+              min={1}
+              max={20}
+              value={character?.characterLevel}
+            />
           </div>
           <div className="ability-scores">
             <label htmlFor="character-strength">Strength</label>
-            <input type="number" id="character-strength" min={1} max={20} />
+            <input
+              type="number"
+              id="character-strength"
+              min={1}
+              max={20}
+              value={character?.strength}
+            />
             <input type="checkbox" id="bon-str" />
             <label htmlFor="character-dexterity">Dexterity</label>
-            <input type="number" id="character-dexterity" min={1} max={20} />
+            <input
+              type="number"
+              id="character-dexterity"
+              min={1}
+              max={20}
+              value={character?.dexterity}
+            />
             <input type="checkbox" id="bon-dex" />
             <label htmlFor="character-constitution">Constitution</label>
-            <input type="number" id="character-constitution" min={1} max={20} />
+            <input
+              type="number"
+              id="character-constitution"
+              min={1}
+              max={20}
+              value={character?.constitution}
+            />
             <input type="checkbox" id="bon-con" />
             <label htmlFor="character-intelligence">Intelligence</label>
-            <input type="number" id="character-intelligence" min={1} max={20} />
+            <input
+              type="number"
+              id="character-intelligence"
+              min={1}
+              max={20}
+              value={character?.intelligence}
+            />
             <input type="checkbox" id="bon-int" />
             <label htmlFor="character-wisdom">Wisdom</label>
-            <input type="number" id="character-wisdom" min={1} max={20} />
+            <input
+              type="number"
+              id="character-wisdom"
+              min={1}
+              max={20}
+              value={character?.wisdom}
+            />
             <input type="checkbox" id="bon-wis" />
             <label htmlFor="character-charisma">Charisma</label>
-            <input type="number" id="character-charisma" min={1} max={20} />
+            <input
+              type="number"
+              id="character-charisma"
+              min={1}
+              max={20}
+              value={character?.charisma}
+            />
             <input type="checkbox" id="bon-cha" />
           </div>
           <div className="secondary-info">

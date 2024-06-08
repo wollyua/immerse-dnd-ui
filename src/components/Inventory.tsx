@@ -1,11 +1,22 @@
+import { useState, useEffect } from "react";
 import "./Inventory.css";
+import { InventoryDto, getInventory } from "../api/ApiService";
 
 export interface InventoryProps {
+  ItemId: string;
   ItemName: string;
   ItemDescription: string;
 }
 
-export default function Inventory({ items }: { items: InventoryProps[] }) {
+export default function Inventory({ characterId }: { characterId: string }) {
+  const [items, setItems] = useState<InventoryDto[]>([]);
+
+  useEffect(() => {
+    getInventory(characterId)
+      .then((response) => setItems(response))
+      .catch((error) => console.error(error));
+  }, [characterId]);
+
   return (
     <div className="inventory-container">
       <div className="list-container">
@@ -13,11 +24,12 @@ export default function Inventory({ items }: { items: InventoryProps[] }) {
         {items.length === 0 ? (
           <div className="empty-inventory">No items in inventory</div>
         ) : (
-          items.map((attack, index) => (
+          items.map((item, index) => (
             <InventoryItem
               key={index}
-              ItemName={attack.ItemName}
-              ItemDescription={attack.ItemDescription}
+              ItemId={item.itemId}
+              ItemName={item.itemName}
+              ItemDescription={item.itemDescription}
             />
           ))
         )}
@@ -28,6 +40,7 @@ export default function Inventory({ items }: { items: InventoryProps[] }) {
 }
 
 function InventoryItem(props: InventoryProps) {
+  const id = props.ItemId;
   return (
     <div className="item-container">
       <div className="item-name">{props.ItemName}</div>
