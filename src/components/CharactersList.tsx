@@ -1,5 +1,5 @@
 import "./CharactersList.css";
-import CharacterCard, { CharacterCardProps } from "./CharacterCard";
+import CharacterCard from "./CharacterCard";
 import { useState } from "react";
 import { CharacterPreviewDto } from "../api/ApiService";
 
@@ -11,7 +11,7 @@ export default function CharactersList({
   items: CharacterPreviewDto[] | null;
 }) {
   if (items === null) {
-    return <div>Loading...</div>;
+    return <div className="list-loading">Loading...</div>;
   }
   const [currentPage, setCurrentPage] = useState(1);
   const indexOfLastItem = currentPage * itemsPerPage;

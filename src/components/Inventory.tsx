@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import "./Inventory.css";
-import { InventoryDto, getInventory } from "../api/ApiService";
+import {
+  InventoryDto,
+  addInventoryItem,
+  getInventory,
+} from "../api/ApiService";
 
 export interface InventoryProps {
   ItemId: string;
@@ -20,7 +24,7 @@ export default function Inventory({ characterId }: { characterId: string }) {
   return (
     <div className="inventory-container">
       <div className="list-container">
-        {true && <AddItem />}
+        {true && <AddItem characterId={characterId} />}
         {items.length === 0 ? (
           <div className="empty-inventory">No items in inventory</div>
         ) : (
@@ -53,7 +57,7 @@ function InventoryItem(props: InventoryProps) {
   );
 }
 
-export function AddItem() {
+export function AddItem({ characterId }: { characterId: string }) {
   const addItem = () => {
     const itemName = document.querySelector(
       ".item-name input"
@@ -66,12 +70,14 @@ export function AddItem() {
       alert("Item name cannot be empty");
       return;
     }
+    let item: InventoryDto = {} as InventoryDto;
+    item.itemName = itemName.value;
+    item.itemDescription = itemDescription.value;
+    item.characterId = characterId;
+    console.log("Adding item:", item);
 
-    var ItemName = itemName.value;
-    var ItemDescription = itemDescription.value;
-    alert("Item added successfully");
-
-    return { ItemName, ItemDescription } as InventoryProps;
+    addInventoryItem(item);
+    return;
   };
 
   return (

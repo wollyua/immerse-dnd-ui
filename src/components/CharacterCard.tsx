@@ -21,7 +21,7 @@ export default function CharacterCard(character: CharacterPreviewDto) {
   const navigate = useNavigate();
   const onClick = () => {
     console.log(`Clicked on character with ID: ${character.characterId}`);
-    navigate(`/my-character`);
+    navigate(`/my-characters/${character.characterId}`);
   };
 
   return (

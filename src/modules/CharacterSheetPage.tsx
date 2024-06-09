@@ -15,15 +15,18 @@ import TraitsCard from "../components/TraitsCard";
 import "./CharacterSheetPage.css";
 import Inventory from "../components/Inventory";
 import Navbar from "../components/Navbar";
-import { useEffect, useState } from "react";
 import CharacterForm from "../components/CharacterForm";
-import { CharacterDto, getCharacter } from "../api/ApiService";
+import { CharacterDto, deleteCharacter, getCharacter } from "../api/ApiService";
+import { useNavigate } from "react-router";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export interface CharacterSheetProps {
   CharacterID: string;
 }
 
-export default function CharacterSheetPage(props: CharacterSheetProps) {
+export default function CharacterSheetPage() {
+  const { characterId } = useParams<{ characterId: string }>();
   const [character, setCharacter] = useState<CharacterDto | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -32,11 +35,15 @@ export default function CharacterSheetPage(props: CharacterSheetProps) {
   function toggle() {
     setIsEditing((isEditing) => !isEditing);
   }
-
-  const handleDelete = () => {};
+  const navigate = useNavigate();
+  const handleDelete = () => {
+    console.log("Deleting character with ID:", characterId);
+    deleteCharacter(characterId as string);
+    navigate("/my-characters");
+  };
 
   useEffect(() => {
-    getCharacter(props.CharacterID)
+    getCharacter(characterId as string)
       .then((data) => {
         console.log("Fetched character data:", data);
         setCharacter(data); // Updates the state
@@ -47,7 +54,7 @@ export default function CharacterSheetPage(props: CharacterSheetProps) {
         setError("Failed to fetch character data");
         setLoading(false);
       });
-  }, [props.CharacterID]);
+  }, [characterId]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -57,6 +64,8 @@ export default function CharacterSheetPage(props: CharacterSheetProps) {
     console.error("Error:", error);
     return;
   }
+
+  let buff: CharacterDto = character as CharacterDto;
 
   return (
     <>
@@ -193,7 +202,7 @@ export default function CharacterSheetPage(props: CharacterSheetProps) {
               </button>
             </div>
             <div className="character-form-container">
-              <CharacterForm {...character} />
+              <CharacterForm {...buff} />
             </div>
           </div>
         )}
