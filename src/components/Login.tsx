@@ -54,7 +54,7 @@ const Login: React.FC = () => {
     <div className="form">
       {!isOpen && (
         <div id="signup">
-          <h2 className="title">Sign Up</h2>
+          <h2 className="title">Join Us</h2>
           <form action="/" method="post" onSubmit={validateSignup}>
             <div className="top-row">
               <div className="field-wrap">

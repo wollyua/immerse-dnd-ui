@@ -1,15 +1,120 @@
-.ability-scores{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 10px;
-    row-gap: 10px;
+.character-form{
+    margin: 15px auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #fffbf5;
+    padding: 10px 20px;
+    max-width: 1140px;
 }
 
-.money{
+.form-header{
+    margin: 15px 0;
+}
+
+input[type="number"]{
+    font-size: 1rem;
+    border-style: solid;
+    border-radius: 10px;
+    height: 2rem;
+}
+
+.general-info{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    row-gap: 5px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+input{
+    font-size: 1rem;
+    border-style: solid;
+    border-radius: 5px;
+    height: 2rem;
+}
+
+.ability-scores{
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    border-top: 1px solid #9a9a9a;
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.ability-scores input[type="number"]{
+    font-size: 1rem;
+    border-style: solid;
+    border-radius: 10px;
+    height: 2rem;
+}
+
+.ability-scores input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    justify-self: right;
+}
+
+.ability-scores input[type="checkbox"]:checked{
+    background-color: #2a2a2a;
+}
+
+.secondary-info{
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 10px;
     row-gap: 10px;
+    border-top: 1px solid #9a9a9a;
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.secondary-info input[type="number"]{
+    font-size: 1rem;
+    border-style: solid;
+    border-radius: 10px;
+    height: 2rem;
+}
+
+.secondary-info input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    justify-self:right;
+}
+
+.secondary-info input[type="checkbox"]:checked{
+    background-color: #2a2a2a;
+}
+
+.money{
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    border-top: 1px solid #9a9a9a;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+.money-input-item{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 5px 10px;
 }
 
 .traits{
@@ -17,4 +122,17 @@
     grid-template-columns: 1fr 1fr;
     column-gap: 10px;
     row-gap: 10px;
+    border-top: 1px solid #9a9a9a;
+    margin: 10px 0;
+    padding: 10px 10px;
+}
+
+.submit-form-button{
+    width: 200px;
+    height: 35px;
+    background-color: #dff9a4;
+    border: 1px solid #323232;
+    color: #1c1c1c;
+    margin: 0 5px;
+    border-radius: 5px;
 }

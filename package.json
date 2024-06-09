@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.7.2",
     "bootstrap": "^5.2.3",
     "guid-typescript": "^1.0.9",
     "react": "^18.2.0",
@@ -20,6 +21,7 @@
     "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
+    "@types/node": "^20.14.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
