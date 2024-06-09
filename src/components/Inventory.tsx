@@ -3,6 +3,7 @@ import "./Inventory.css";
 import {
   InventoryDto,
   addInventoryItem,
+  deleteInventoryItem,
   getInventory,
 } from "../api/ApiService";
 
@@ -45,6 +46,12 @@ export default function Inventory({ characterId }: { characterId: string }) {
 
 function InventoryItem(props: InventoryProps) {
   const id = props.ItemId;
+
+  const deleteHandler = () => {
+    console.log("Deleting item with ID:", id);
+    deleteInventoryItem(id);
+  };
+
   return (
     <div className="item-container">
       <div className="item-name">{props.ItemName}</div>
@@ -53,6 +60,9 @@ function InventoryItem(props: InventoryProps) {
           ? "-"
           : props.ItemDescription}
       </div>
+      <button className="delete-item-button" onClick={deleteHandler}>
+        Remove
+      </button>
     </div>
   );
 }
@@ -83,10 +93,10 @@ export function AddItem({ characterId }: { characterId: string }) {
   return (
     <div className="add-item-container">
       <div className="item-name">
-        <input type="text" maxLength={32} />
+        <input className="item-name-input" type="text" maxLength={32} />
       </div>
       <div className="item-description">
-        <input type="text" maxLength={64} />
+        <input className="item-description-input" type="text" maxLength={64} />
       </div>
       <button className="add-item-button" onClick={addItem}>
         Add

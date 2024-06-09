@@ -11,11 +11,12 @@
     margin: 15px 0;
 }
 
-input[type="number"]{
+.character-form input[type="number"]{
     font-size: 1rem;
     border-style: solid;
     border-radius: 10px;
     height: 2rem;
+    padding-left: 15px;
 }
 
 .general-info{
@@ -26,7 +27,7 @@ input[type="number"]{
     margin-bottom: 15px;
 }
 
-input{
+.character-form input{
     font-size: 1rem;
     border-style: solid;
     border-radius: 5px;
