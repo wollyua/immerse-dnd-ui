@@ -111,7 +111,7 @@ export const getUser = (UserName: string) => {
 }
 
 export const createCharacter = (UserId: string) => {
-    return api.post(`/User/Get/${UserId}`);
+    return api.post(`/Character/Create/${UserId}`);
 }
 
 export const addAttack = (attack:AttackDto) => {

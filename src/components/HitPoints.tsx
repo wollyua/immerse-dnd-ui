@@ -11,9 +11,13 @@ interface HitPointsProps {
 
 export default function HitPoints(props: HitPointsProps) {
   const [inputValue, setInputValue] = useState<number>(0);
+  const [currentHP, setCurrentHP] = useState<number>(
+    props.currentHitPoints > 0 ? props.currentHitPoints : 0
+  );
+  const [tempHP, setTempHP] = useState<number>(
+    props.temporaryHitPoints > 0 ? props.temporaryHitPoints : 0
+  );
 
-  let tempHP = props.temporaryHitPoints > 0 ? props.temporaryHitPoints : 0;
-  let currentHP = props.currentHitPoints > 0 ? props.currentHitPoints : 0;
   let maxHP = props.maxHitPoints > 0 ? props.maxHitPoints : 0;
 
   const healHandler = async () => {
@@ -26,7 +30,7 @@ export default function HitPoints(props: HitPointsProps) {
 
     try {
       await updateHP(props.characterId, hpRequest);
-      currentHP = newCurrentHP;
+      setCurrentHP(newCurrentHP);
     } catch (error) {
       console.error("Error updating HP:", error);
       return;
@@ -41,9 +45,9 @@ export default function HitPoints(props: HitPointsProps) {
     if (tempHP > 0) {
       if (remainingDamage >= tempHP) {
         remainingDamage -= tempHP;
-        tempHP = 0;
+        setTempHP(0);
       } else {
-        tempHP -= remainingDamage;
+        setTempHP(tempHP - remainingDamage);
         remainingDamage = 0;
       }
     }
@@ -57,7 +61,7 @@ export default function HitPoints(props: HitPointsProps) {
 
     try {
       await updateHP(props.characterId, hpRequest);
-      currentHP = newCurrentHP;
+      setCurrentHP(newCurrentHP);
     } catch (error) {
       console.error("Error updating HP:", error);
       return;

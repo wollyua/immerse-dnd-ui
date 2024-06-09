@@ -5,7 +5,6 @@ import AbilitySecondary, {
 import editIcon from "../assets/Edit icon.svg";
 import deleteIcon from "../assets/delete-button.svg";
 import closeIcon from "../assets/closeIcon.svg";
-import saveIcon from "../assets/SaveIcon.svg";
 import ArmorClass from "../components/ArmorClass";
 import AttacksContainer from "../components/AttacksContainer";
 import DeathSaves from "../components/DeathSaves";
@@ -34,6 +33,17 @@ export default function CharacterSheetPage() {
 
   function toggle() {
     setIsEditing((isEditing) => !isEditing);
+    getCharacter(characterId as string)
+      .then((data) => {
+        console.log("Fetched character data");
+        setCharacter(data); // Updates the state
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch character data:", err);
+        setError("Failed to fetch character data");
+        setLoading(false);
+      });
   }
   const navigate = useNavigate();
   const handleDelete = () => {
@@ -196,9 +206,6 @@ export default function CharacterSheetPage() {
             <div className="buttons-container">
               <button className="edit-character-button">
                 <img src={closeIcon} alt="Edit character" onClick={toggle} />
-              </button>
-              <button className="edit-character-button">
-                <img src={saveIcon} alt="Save character" onClick={toggle} />
               </button>
             </div>
             <div className="character-form-container">
