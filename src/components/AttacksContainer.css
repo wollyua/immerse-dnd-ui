@@ -46,12 +46,95 @@
   margin: auto;
 }
 
+.add-attack-button{
+  width: 43%;
+  margin-top: 5px;
+  background-color: #fff;
+  border: 1px solid #323232;
+  color: #62B761;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.add-attack-button:hover{
+  background-color: #f0f0f0;
+}
+
+.add-attack-button:active{
+  background-color: #e0e0e0;
+}
+
 .add-attack-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 5px;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
   padding: 10px;
   border-bottom: 1px solid #ddd;
   font-size: 0.8rem;
+  justify-content: center;
+}
+
+.attack-name{
+  max-width: 100%;
+}
+
+.attack-name-input{
+  max-width: 100%;
+  height: 2rem;
+  font-size: 0.8rem;
+  border: 1px solid #ddd;
+  border: none;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.attack-range{
+  max-width: 70px;
+  padding: 2px;
+}
+
+
+.damage-type-select{
+  max-width: 100%;
+  padding: 2px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.dice-type-select{
+  max-width: 100%;
+  padding: 2px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.range-and-damage{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 2px 0;
+}
+
+.range-input{
+  max-width: 77%;
+  height: 1.5rem;
+  padding-left: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.dice-number-input{
+  max-width: 45px;
+  padding-left: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+
+input{
+  outline: none;
 }
