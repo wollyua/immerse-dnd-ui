@@ -67,7 +67,7 @@ export default function CharacterSheetPage() {
   }, [characterId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="list-loading">Loading...</div>;
   }
 
   if (error) {
