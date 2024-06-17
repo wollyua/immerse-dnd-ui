@@ -149,6 +149,7 @@ export function AddAttack({ characterId }: { characterId: string }) {
             <option value="Acid">Acid</option>
             <option value="Bludgeoning">Bludgeoning</option>
             <option value="Cold">Cold</option>
+            <option value="Control">Control</option>
             <option value="Fire">Fire</option>
             <option value="Force">Force</option>
             <option value="Lightning">Lightning</option>
